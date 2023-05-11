@@ -1,20 +1,23 @@
+import { purple } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
-const customTheme = createTheme({
-    palette: {
-        primary: {
-            light: '#1ec582',
-            main: '#1a983e',
-            dark: '#035b30',
-            contrastText: '#fff',
-        },
-        secondary: {
-            light: '#ff7961',
-            main: '#f44336',
-            dark: '#ba000d',
-            contrastText: '#000',
-        },
+const purpleTheme = createTheme({
+  palette: {
+    primary: {
+      main: purple[500],
+      contrastText: '#FFFFFF'
     },
-});
+    secondary: {
+      main: purple["A400"]
+    },
+    background: {
+      default: purple[50],
+    },
+  },
+  typography: {
+    fontFamily: 'Quicksand',
+    fontSize: 14
+  },
+})
 
-export default customTheme
+export default purpleTheme
