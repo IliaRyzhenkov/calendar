@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from "react-router-dom"
 import {
   Grid,
   ThemeProvider,
@@ -9,6 +10,9 @@ import {
 import Sidebar from './modules/sidebar';
 import Dashboard from './modules/dashboard';
 import purpleTheme from './themes/theme';
+import Todo from './modules/todo';
+import Themes from './modules/themes';
+import Notes from './modules/notes';
 
 
 
@@ -49,7 +53,11 @@ function App() {
                 <Dashboard />
               </Grid>
               <Grid item md={12} lg={8}>
-                <h1>Content</h1>
+                <Routes>
+                  <Route path='/' element={<Todo />} />
+                  <Route path='/themes' element={<Themes />} />
+                  <Route path='/notes' element={<Notes />} />
+                </Routes>
               </Grid>
               <Grid item md={12} lg={4}>
                 <h1>Calendar</h1>

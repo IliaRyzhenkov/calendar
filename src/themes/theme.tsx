@@ -8,7 +8,9 @@ const purpleTheme = createTheme({
       contrastText: '#FFFFFF'
     },
     secondary: {
-      main: purple["A400"]
+      main: purple["A400"],
+      contrastText: '#FFFFFF'
+
     },
     background: {
       default: purple[50],
