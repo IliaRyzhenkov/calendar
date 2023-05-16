@@ -13,7 +13,7 @@ const data = [
   {
     icon: <People />,
     label: 'My Profile',
-    path: '/profile'
+    path: '/'
   },
   {
     icon: <PermMedia />,
@@ -27,6 +27,10 @@ const data = [
   }
 
 ]
+
+interface circleColor {
+
+}
 const Sidebar = () => {
   return (
     <Box>
@@ -46,10 +50,16 @@ const Sidebar = () => {
             key={item.label}
             to={item.path}
           >
-            <ListItemButton>
-              <ListItemIcon sx={{
-                color: "white"
+            <ListItemButton
+              sx={{
+                p: 1,
+                color: 'rgba(255,255,255,.8)'
               }}
+            >
+              <ListItemIcon
+                sx={{
+                  color: 'inherit'
+                }}
               >
                 {item.icon}
               </ListItemIcon>
@@ -58,7 +68,6 @@ const Sidebar = () => {
                 primaryTypographyProps={{
                   fontSize: 17,
                   fontWeight: '500',
-                  color: 'white'
                 }}
               />
             </ListItemButton>

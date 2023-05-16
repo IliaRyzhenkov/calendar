@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom"
 import {
   Grid,
@@ -9,7 +9,7 @@ import {
 
 import Sidebar from './modules/sidebar';
 import Dashboard from './modules/dashboard';
-import purpleTheme from './themes/theme';
+import { blackTheme, blueTheme, orangeTheme, purpleTheme } from './themes';
 import Todo from './modules/todo';
 import Themes from './modules/themes';
 import Notes from './modules/notes';
@@ -18,8 +18,12 @@ import Notes from './modules/notes';
 
 
 function App() {
+
+  const [curentTheme, setCurentTheme] = useState(blueTheme)
+
+
   return (
-    <ThemeProvider theme={purpleTheme}>
+    <ThemeProvider theme={curentTheme}>
       <Box
         p={'3%'}
         minHeight={'100vh'}
@@ -55,7 +59,7 @@ function App() {
               <Grid item md={12} lg={8}>
                 <Routes>
                   <Route path='/' element={<Todo />} />
-                  <Route path='/themes' element={<Themes />} />
+                  <Route path='/themes' element={<Themes setTheme={setCurentTheme} />} />
                   <Route path='/notes' element={<Notes />} />
                 </Routes>
               </Grid>
