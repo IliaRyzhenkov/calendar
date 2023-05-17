@@ -44,7 +44,7 @@ function App() {
             pt={4}
             bgcolor={'background.main'}
           >
-            <Sidebar />
+            <Sidebar light={curentTheme.palette.primary.light} />
           </Grid>
           <Grid item xs={12} sm={8} md={9} lg={10}
             p={5}

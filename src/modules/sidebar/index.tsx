@@ -28,10 +28,11 @@ const data = [
 
 ]
 
-interface circleColor {
-
+interface colorTheme {
+  light: string
 }
-const Sidebar = () => {
+
+const Sidebar = ({ light }: colorTheme) => {
   return (
     <Box>
       <Box
@@ -40,7 +41,7 @@ const Sidebar = () => {
         mb={4}
         borderRadius={50}
         sx={{
-          background: 'linear-gradient(90deg, rgba(253,53,255,1) 50%, rgba(171,52,255,0.5) 50%)'
+          background: `linear-gradient(90deg, ${light} 50%, rgba(255,255,255,0.5) 50%)`
         }}
       >
       </Box>
