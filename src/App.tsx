@@ -13,17 +13,20 @@ import { blackTheme, blueTheme, orangeTheme, purpleTheme } from './themes';
 import Todo from './modules/todo';
 import Themes from './modules/themes';
 import Notes from './modules/notes';
+import { observer } from 'mobx-react';
+import ThemeStore from './store/theme'
 
 
 
 
-function App() {
+const App = observer(() => {
 
-  const [curentTheme, setCurentTheme] = useState(blueTheme)
+
 
 
   return (
-    <ThemeProvider theme={curentTheme}>
+
+    <ThemeProvider theme={ThemeStore.activeTheme}>
       <Box
         p={'3%'}
         minHeight={'100vh'}
@@ -44,7 +47,7 @@ function App() {
             pt={4}
             bgcolor={'background.main'}
           >
-            <Sidebar light={curentTheme.palette.primary.light} />
+            <Sidebar light={ThemeStore.activeTheme} />
           </Grid>
           <Grid item xs={12} sm={8} md={9} lg={10}
             p={5}
@@ -59,7 +62,7 @@ function App() {
               <Grid item md={12} lg={8}>
                 <Routes>
                   <Route path='/' element={<Todo />} />
-                  <Route path='/themes' element={<Themes setTheme={setCurentTheme} />} />
+                  <Route path='/themes' element={<Themes />} />
                   <Route path='/notes' element={<Notes />} />
                 </Routes>
               </Grid>
@@ -72,6 +75,6 @@ function App() {
       </Box>
     </ThemeProvider>
   );
-}
+})
 
 export default App;
