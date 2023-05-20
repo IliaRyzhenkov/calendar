@@ -3,8 +3,6 @@ import { blackTheme, blueTheme, orangeTheme, purpleTheme } from '../../themes';
 import ThemeStore from '../../store/theme'
 
 
-
-
 const data = [
   {
     name: 'purple',
@@ -25,10 +23,6 @@ const data = [
 
 ]
 
-interface SetThemes {
-  setTheme: Function
-
-}
 
 const Themes = () => {
 

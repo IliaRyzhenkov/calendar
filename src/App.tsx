@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom"
 import {
   Grid,
@@ -9,7 +8,6 @@ import {
 
 import Sidebar from './modules/sidebar';
 import Dashboard from './modules/dashboard';
-import { blackTheme, blueTheme, orangeTheme, purpleTheme } from './themes';
 import Todo from './modules/todo';
 import Themes from './modules/themes';
 import Notes from './modules/notes';
@@ -17,12 +15,7 @@ import { observer } from 'mobx-react';
 import ThemeStore from './store/theme'
 
 
-
-
 const App = observer(() => {
-
-
-
 
   return (
 
@@ -47,7 +40,7 @@ const App = observer(() => {
             pt={4}
             bgcolor={'background.main'}
           >
-            <Sidebar light={ThemeStore.activeTheme} />
+            <Sidebar />
           </Grid>
           <Grid item xs={12} sm={8} md={9} lg={10}
             p={5}

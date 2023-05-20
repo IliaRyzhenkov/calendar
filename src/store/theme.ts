@@ -1,5 +1,5 @@
 import {makeAutoObservable} from 'mobx'
-import { blackTheme, blueTheme, orangeTheme, purpleTheme } from '../themes'
+import { blackTheme } from '../themes'
 
 class ThemeStore{
     constructor(){

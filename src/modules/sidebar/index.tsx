@@ -1,8 +1,8 @@
 import { Dns, People, PermMedia, TextSnippetRounded } from "@mui/icons-material"
 import { Box } from "@mui/material"
-import React from "react"
 import { NavLink } from "react-router-dom"
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import ThemeStore from '../../store/theme'
 
 const data = [
   {
@@ -28,11 +28,8 @@ const data = [
 
 ]
 
-interface colorTheme {
-  light: string
-}
 
-const Sidebar = ({ light }: colorTheme) => {
+const Sidebar = () => {
   return (
     <Box>
       <Box
@@ -41,7 +38,7 @@ const Sidebar = ({ light }: colorTheme) => {
         mb={4}
         borderRadius={50}
         sx={{
-          background: `linear-gradient(90deg, ${light} 50%, rgba(255,255,255,0.5) 50%)`
+          background: `linear-gradient(90deg, ${ThemeStore.activeTheme.palette.primary.light} 50%, rgba(255,255,255,0.5) 50%)`
         }}
       >
       </Box>
