@@ -1,33 +1,21 @@
 import { Box } from "@mui/material"
 import TaskItem from "./taskItem"
+import TodoStore from '../../../store/todo'
+import { observer } from "mobx-react"
 
-const tasks = [
-  {
-    title: 'drink beer',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a.'
-  },
-  {
-    title: 'drink coffee',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a.'
-  },
-  {
-    title: 'drink juice',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, a.'
-  }
-]
 
-const TaskList = () => {
+const TaskList = observer(() => {
   return (
     <Box my={2.5}>
       {
-        tasks.map((task) => (
-          <TaskItem title={task.title} body={task.body} />
+        TodoStore.todoArray.map((task) => (
+          <TaskItem title={task.title} body={task.body} key={task.title} />
         ))
       }
 
 
     </Box>
   )
-}
+})
 
 export default TaskList

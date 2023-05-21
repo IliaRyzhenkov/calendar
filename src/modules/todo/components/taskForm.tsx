@@ -1,4 +1,6 @@
+
 import { Box, Button, ButtonGroup } from "@mui/material"
+import AddTask from "./addTask"
 
 const buttons = [
   <Button variant="contained" key="all">All</Button>,
@@ -15,11 +17,7 @@ const TaskForm = () => {
       <ButtonGroup sx={{ height: '40px' }}>
         {buttons}
       </ButtonGroup>
-      <Button variant="outlined"
-        sx={{ height: '40px' }}
-      >
-        Add New Task
-      </Button>
+      <AddTask />
     </Box>
   )
 }
