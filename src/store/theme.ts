@@ -1,11 +1,11 @@
 import {makeAutoObservable} from 'mobx'
-import { blackTheme } from '../themes'
+import { blueTheme } from '../themes'
 
 class ThemeStore{
     constructor(){
         makeAutoObservable(this)
     }
-    activeTheme:any = blackTheme
+    activeTheme:any = blueTheme
 
      setActiveTheme (theme:any){
       this.activeTheme = theme
