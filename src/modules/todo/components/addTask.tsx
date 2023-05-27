@@ -5,6 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import TodoStore from '../../../store/todo'
+import { ItaskItem } from '../models';
 
 
 
