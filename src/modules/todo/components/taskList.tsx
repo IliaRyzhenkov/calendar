@@ -9,9 +9,14 @@ const TaskList = observer(() => {
   return (
     <Box my={2.5}>
       {
-        TodoStore.todoArray.map((task) => (
-          <TaskItem title={task.title} body={task.body} key={task.id} id={task.id} status={task.status} />
-        ))
+        TodoStore.todoArray.map((task) => {
+          if (TodoStore.filterTasks == task.status || TodoStore.filterTasks == null) {
+            return (
+
+              <TaskItem title={task.title} body={task.body} key={task.id} id={task.id} status={task.status} />
+            )
+          }
+        })
       }
 
 
