@@ -14,6 +14,7 @@ import Notes from './modules/notes';
 import { observer } from 'mobx-react';
 import ThemeStore from './store/theme'
 import TodoCalendar from "./modules/calendar";
+import Profile from "./modules/profile";
 
 
 const App = observer(() => {
@@ -57,6 +58,7 @@ const App = observer(() => {
                 <Routes>
                   <Route path='/' element={<Todo />} />
                   <Route path='/themes' element={<Themes />} />
+                  <Route path='/profile' element={<Profile />} />
                   <Route path='/notes' element={<Notes />} />
                 </Routes>
               </Grid>

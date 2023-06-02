@@ -13,7 +13,7 @@ const data = [
   {
     icon: <People />,
     label: 'My Profile',
-    path: '/'
+    path: '/profile'
   },
   {
     icon: <PermMedia />,
