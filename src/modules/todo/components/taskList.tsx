@@ -2,6 +2,7 @@ import { Box } from "@mui/material"
 import TaskItem from "./taskItem"
 import TodoStore from '../../../store/todo'
 import { observer } from "mobx-react"
+import { ItaskItem } from "../models"
 
 
 const TaskList = observer(() => {
@@ -9,7 +10,7 @@ const TaskList = observer(() => {
   return (
     <Box my={2.5}>
       {
-        TodoStore.todoArray.map((task) => {
+        TodoStore.todoArray.map((task: ItaskItem) => {
           if (TodoStore.currentDate == task.date && (TodoStore.filterTasks == task.status || TodoStore.filterTasks == null)) {
             return (
 
