@@ -10,19 +10,23 @@ class NotesStore {
 
   notesArray: ICategory[] = [
     {
-      name: 'game',
+      categoryUrl: 'game',
+      name: 'Game',
       color: purple[400]
     },
     {
-      name: 'chill',
+      categoryUrl: 'chill',
+      name: 'Chill',
       color: orange[900]
     },
     {
-      name: 'work',
+      categoryUrl: 'work',
+      name: 'Work',
       color: blue[600]
     },
     {
-      name: 'food',
+      categoryUrl: 'food',
+      name: 'Food',
       color: teal[600]
     },
   ]
