@@ -1,6 +1,7 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom'
 import { notesStore } from '../../store/notes';
+import Colors from './components/colors';
 
 
 const Note = () => {
@@ -16,7 +17,7 @@ const Note = () => {
       }}
     >
       <Box display={'flex'} alignItems={'center'} mb={2}>
-        <Typography color={currentCategory.color} variant={'h5'} textTransform={'uppercase'} fontWeight={'600'}>
+        <Typography color={Colors[currentCategory.color]} variant={'h5'} textTransform={'uppercase'} fontWeight={'600'}>
           {currentCategory.name}
         </Typography>
       </Box>
