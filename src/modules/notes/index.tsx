@@ -14,7 +14,7 @@ const Notes = observer(() => {
         {
           notesStore.notesArray.map((e: ICategory) => (
             <Paper
-              key={useId()}
+              key={e.name}
               sx={{
                 flexBasis: 'calc(33.3% - 10px)',
                 m: '5px',

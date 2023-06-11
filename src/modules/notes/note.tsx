@@ -17,7 +17,7 @@ const Note = () => {
       }}
     >
       <Box display={'flex'} alignItems={'center'} mb={2}>
-        <Typography color={Colors[currentCategory.color]} variant={'h5'} textTransform={'uppercase'} fontWeight={'600'}>
+        <Typography color={currentCategory.color} variant={'h5'} textTransform={'uppercase'} fontWeight={'600'}>
           {currentCategory.name}
         </Typography>
       </Box>

@@ -7,32 +7,37 @@ class NotesStore {
     makeAutoObservable(this)
   }
 
+
   notesArray: ICategory[] = [
     {
       icon: 3,
       categoryUrl: 'game',
       name: 'Game',
-      color: 0
+      color:'#FDBE7E',
     },
     {
       icon: 4,
       categoryUrl: 'chill',
       name: 'Chill',
-      color: 5
+      color: '#F9A090',
     },
     {
       icon: 5,
       categoryUrl: 'work',
       name: 'Work',
-      color: 2
+      color:  '#6DD28C',
     },
     {
       icon: 8,
       categoryUrl: 'food',
       name: 'Food',
-      color: 3
+      color:   '#A59FDB'
+
     },
   ]
+  addNote(note:ICategory) {
+    this.notesArray.push(note)
+  }
 }
 const notesStore = new NotesStore
 
