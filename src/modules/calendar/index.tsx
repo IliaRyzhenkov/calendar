@@ -19,7 +19,7 @@ const TodoCalendar = observer(() => {
 
   return (
     <Paper variant={'outlined'}
-      sx={{ p: '20px', pt: '25px', borderRadius: '10px', boxShadow: '4px 4px 14px -10px grey' }}
+      sx={{ p: '5px', pt: '5px', borderRadius: '10px', boxShadow: '4px 4px 14px -10px grey' }}
     >
       <CustomCalendar
         locale={'en'}

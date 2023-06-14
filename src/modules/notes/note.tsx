@@ -1,13 +1,15 @@
 import { Box, Paper, Typography } from '@mui/material';
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { notesStore } from '../../store/notes';
 import AddNote from './components/add-note';
+import { INote } from './models';
+import { observer } from 'mobx-react';
 
 
 
-const Note = () => {
+const Note = observer(() => {
   const { noteCategory } = useParams()
-  const categoryIndex = notesStore.notesArray.findIndex((e) => e.categoryUrl === noteCategory)
+  const categoryIndex = notesStore.notesArray.findIndex((e) => e.categoryUrl === noteCategory)  // remake find
   const currentCategory = notesStore.notesArray[categoryIndex]
   return (
     <Paper variant={'outlined'} square={true}
@@ -22,9 +24,21 @@ const Note = () => {
           {currentCategory.name}
         </Typography>
       </Box>
+      {
+        currentCategory.notes.map((e: INote) => (
+          <NavLink to={`./${e.title.toLowerCase().trim().replaceAll(' ', '-')}`}>
+            <Paper key={e.title} variant={'outlined'}
+              sx={{ p: 1, pl: 2, mb: 1, borderRadius: '6px' }}>
+              <Typography variant={'h6'}>
+                {e.title}
+              </Typography>
+            </Paper>
+          </NavLink>
+        ))
+      }
       <AddNote />
     </Paper>
   )
-}
+})
 
 export default Note

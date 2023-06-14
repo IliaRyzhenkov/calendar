@@ -60,7 +60,7 @@ const AddNote = () => {
             pb: '20x'
           }}
         >
-          <Button variant='outlined'
+          <Button variant='outlined' sx={{ marginBottom: 2 }}
             onClick={() => {
               addNewNote()
             }}>
