@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx"
-import { ICategory } from "../modules/notes/models"
+import { ICategory, INote } from "../modules/notes/models"
 
 
 class NotesStore {
@@ -8,37 +8,18 @@ class NotesStore {
   }
 
 
-  notesArray: ICategory[] = [
-    {
-      icon: 3,
-      categoryUrl: 'game',
-      name: 'Game',
-      color:'#FDBE7E',
-    },
-    {
-      icon: 4,
-      categoryUrl: 'chill',
-      name: 'Chill',
-      color: '#F9A090',
-    },
-    {
-      icon: 5,
-      categoryUrl: 'work',
-      name: 'Work',
-      color:  '#6DD28C',
-    },
-    {
-      icon: 8,
-      categoryUrl: 'food',
-      name: 'Food',
-      color:   '#A59FDB'
-
-    },
-  ]
-  addNote(note:ICategory) {
+  notesArray: ICategory[] = JSON.parse(localStorage.getItem('notes') || '[]') 
+  
+  addNoteCategory(note: ICategory) {
     this.notesArray.push(note)
+    localStorage.setItem('notes', JSON.stringify(this.notesArray))
+  }
+
+  addNote(newNote: INote) {
+    
+    
   }
 }
-const notesStore = new NotesStore
+const notesStore = new NotesStore()
 
 export { notesStore }

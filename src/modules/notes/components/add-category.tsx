@@ -1,7 +1,7 @@
 import { Add } from '@mui/icons-material'
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle, Fab, Stack, TextField, Button, Menu, MenuItem, SvgIcon } from '@mui/material'
-import React, { useState } from 'react'
-import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import  { useState } from 'react'
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import Colors from './colors';
 import IconsArray from './icons';
 import { notesStore } from '../../../store/notes';
@@ -18,22 +18,24 @@ const AddCategory = () => {
   function addNewCategory() {
     setOpen(false)
     const catUrl = category.trim().replace(' ', '-')
-    notesStore.addNote({
+    notesStore.addNoteCategory({
       icon: categoryIconIndex,
       categoryUrl: catUrl,
       name: category.trim(),
-      color: colorIcon
+      color: colorIcon,
+      notes: []
     })
   }
   return (
     <>
       <Box
-        onClick={() => setOpen(true)}
         display={'flex'}
         justifyContent={'flex-end'}
         mt={2}
       >
-        <Fab color='primary' aria-label='add' >
+        <Fab color='primary' aria-label='add'
+          onClick={() => setOpen(true)}
+        >
           <Add />
         </Fab>
       </Box>
@@ -71,7 +73,7 @@ const AddCategory = () => {
                   >
                     <Box width={20} height={20} bgcolor={colorIcon} marginRight={1}></Box>
                   </Button>
-                  <Menu {...bindPopover(popupState)} >
+                  <Menu {...bindMenu(popupState)} >
                     {
                       Colors.map((e) => (
                         <MenuItem key={e}
@@ -105,7 +107,7 @@ const AddCategory = () => {
                   >
                     <SvgIcon sx={{ fontSize: 40 }}>{categoryIcon}</SvgIcon>
                   </Button>
-                  <Menu {...bindPopover(popupState)} >
+                  <Menu {...bindMenu(popupState)} >
                     {
                       IconsArray.map((e, index) => (
                         <MenuItem key={index}
@@ -136,6 +138,7 @@ const AddCategory = () => {
             }}>
             Add
           </Button>
+
         </DialogActions>
       </Dialog>
     </>

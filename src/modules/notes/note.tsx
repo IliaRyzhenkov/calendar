@@ -1,12 +1,13 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom'
 import { notesStore } from '../../store/notes';
-import Colors from './components/colors';
+import AddNote from './components/add-note';
+
 
 
 const Note = () => {
   const { noteCategory } = useParams()
-  const categoryIndex = notesStore.notesArray.findIndex((e) => e.categoryUrl == noteCategory)
+  const categoryIndex = notesStore.notesArray.findIndex((e) => e.categoryUrl === noteCategory)
   const currentCategory = notesStore.notesArray[categoryIndex]
   return (
     <Paper variant={'outlined'} square={true}
@@ -21,6 +22,7 @@ const Note = () => {
           {currentCategory.name}
         </Typography>
       </Box>
+      <AddNote />
     </Paper>
   )
 }
