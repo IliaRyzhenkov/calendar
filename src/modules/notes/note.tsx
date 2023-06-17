@@ -9,8 +9,8 @@ import { observer } from 'mobx-react';
 
 const Note = observer(() => {
   const { noteCategory } = useParams()
-  const categoryIndex = notesStore.notesArray.findIndex((e) => e.categoryUrl === noteCategory)  // remake find
-  const currentCategory = notesStore.notesArray[categoryIndex]
+  const currentCategory = notesStore.notesArray.filter((e) => e.categoryUrl === noteCategory)[0]  
+ 
   return (
     <Paper variant={'outlined'} square={true}
       sx={{
@@ -26,8 +26,8 @@ const Note = observer(() => {
       </Box>
       {
         currentCategory.notes.map((e: INote) => (
-          <NavLink to={`./${e.title.toLowerCase().trim().replaceAll(' ', '-')}`}>
-            <Paper key={e.title} variant={'outlined'}
+          <NavLink key={e.title} to={`./${e.noteUrl}`}>
+            <Paper  variant={'outlined'}
               sx={{ p: 1, pl: 2, mb: 1, borderRadius: '6px' }}>
               <Typography variant={'h6'}>
                 {e.title}

@@ -17,7 +17,7 @@ const AddCategory = () => {
 
   function addNewCategory() {
     setOpen(false)
-    const catUrl = category.trim().replace(' ', '-')
+    const catUrl = category.trim().replaceAll(' ', '-').toLowerCase()
     notesStore.addNoteCategory({
       icon: categoryIconIndex,
       categoryUrl: catUrl,

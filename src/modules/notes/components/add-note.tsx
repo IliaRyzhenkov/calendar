@@ -15,7 +15,9 @@ const AddNote = () => {
   const [note, setNote] = useState('')
   function addNewNote() {
     setOpen(false)
+    const noteUrl = note.trim().replaceAll(' ', '-').toLowerCase()
     const newNote: INote = {
+      noteUrl: noteUrl,
       parent: noteCategory || '',
       title: note,
       body: '',
