@@ -3,6 +3,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { notesStore } from '../../store/notes'
 import IconsArray from './components/icons'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
+import NoteBody from './components/note-body'
 
 const NoteDetails = () => {
   const { noteCategory, noteDetails } = useParams()
@@ -26,6 +27,7 @@ const NoteDetails = () => {
           {note.title}
         </Typography>
       </Box>
+      <NoteBody color={category.color} body={note.body}/>
       <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} mb={1} mt={3} >
         {
           category.notes[indexNote - 1]

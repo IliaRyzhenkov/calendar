@@ -14,3 +14,9 @@ export interface ICategory {
   notes: INote[]
 
 }
+
+export interface IBody {
+  body: string,
+  color: string
+} 
+
