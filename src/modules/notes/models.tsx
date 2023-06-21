@@ -1,6 +1,6 @@
-export interface INote{
+export interface INote {
   noteUrl: string,
-  parent:string,
+  parent: string,
   title: string,
   body: string,
   date: string
@@ -8,7 +8,7 @@ export interface INote{
 
 export interface ICategory {
   icon: number,
-  categoryUrl?: string,
+  categoryUrl: string,
   name: string,
   color: string,
   notes: INote[]
@@ -16,7 +16,9 @@ export interface ICategory {
 }
 
 export interface IBody {
+  name: string,
+  category: string,
   body: string,
-  color: string
-} 
+  color?: string
+}
 

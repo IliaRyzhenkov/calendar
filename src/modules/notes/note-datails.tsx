@@ -27,7 +27,7 @@ const NoteDetails = () => {
           {note.title}
         </Typography>
       </Box>
-      <NoteBody color={category.color} body={note.body}/>
+      <NoteBody color={category.color} body={note.body} category={category.categoryUrl} name={note.noteUrl} />
       <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} mb={1} mt={3} >
         {
           category.notes[indexNote - 1]
