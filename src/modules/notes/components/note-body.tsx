@@ -1,5 +1,5 @@
 import { Box, SvgIcon, Typography } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IBody } from '../models'
 import { Edit, Save } from '@mui/icons-material'
 import MDEditor from '@uiw/react-md-editor'
@@ -10,6 +10,9 @@ import { notesStore } from '../../../store/notes'
 const NoteBody = ({ color, body:initBody, category, name }: IBody) => {
   const [edit, setEdit] = useState(true)
   const [body, setValue] = useState(() => initBody)
+  useEffect(() => {
+    setValue(initBody)
+  },[initBody])
 
   return (
     <>

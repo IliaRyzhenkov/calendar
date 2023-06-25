@@ -4,6 +4,7 @@ import IconsArray from "./icons"
 
 
 
+
 const CategoryNotes = ({ name, color, icon, notes, categoryUrl }: ICategory) => {
   return (
     <>
@@ -13,6 +14,9 @@ const CategoryNotes = ({ name, color, icon, notes, categoryUrl }: ICategory) => 
       <Typography color={color} variant={'h5'} fontWeight={'600'} textTransform={'uppercase'}>
         {name}
       </Typography>
+      <Typography variant={'h6'} color={'#a6a1a1'} position={'absolute'} bottom={'10px'}>
+        {notes.length} Notes
+      </Typography>   
     </>
   )
 }

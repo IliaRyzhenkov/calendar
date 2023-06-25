@@ -1,16 +1,17 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, SvgIcon, Typography } from '@mui/material';
 import { NavLink, useParams } from 'react-router-dom'
 import { notesStore } from '../../store/notes';
 import AddNote from './components/add-note';
 import { INote } from './models';
 import { observer } from 'mobx-react';
+import { Delete } from '@mui/icons-material';
 
 
 
 const Note = observer(() => {
   const { noteCategory } = useParams()
-  const currentCategory = notesStore.notesArray.filter((e) => e.categoryUrl === noteCategory)[0]  
- 
+  const currentCategory = notesStore.notesArray.filter((e) => e.categoryUrl === noteCategory)[0]
+
   return (
     <Paper variant={'outlined'} square={true}
       sx={{
@@ -26,14 +27,20 @@ const Note = observer(() => {
       </Box>
       {
         currentCategory.notes.map((e: INote) => (
-          <NavLink key={e.title} to={`./${e.noteUrl}`}>
-            <Paper  variant={'outlined'}
-              sx={{ p: 1, pl: 2, mb: 1, borderRadius: '6px' }}>
-              <Typography variant={'h6'}>
-                {e.title}
-              </Typography>
-            </Paper>
-          </NavLink>
+          <Box position={'relative'} >
+            <NavLink key={e.title} to={`./${e.noteUrl}`}>
+              <Paper variant={'outlined'}
+                sx={{ p: 1, pl: 2, mb: 1, borderRadius: '6px' }}>
+                <Typography variant={'h6'}>
+                  {e.title}
+                </Typography>
+              </Paper>
+            </NavLink>
+            <SvgIcon onClick={() => notesStore.delNote(currentCategory.categoryUrl, e.noteUrl)}
+              sx={{ color: '#a6a1a1', fontSize: '25px', position: 'absolute',top:'13px', right: '15px', cursor:'pointer' }}>
+              <Delete />
+            </SvgIcon >
+          </Box>
         ))
       }
       <AddNote />
