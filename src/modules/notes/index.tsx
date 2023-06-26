@@ -64,10 +64,11 @@ const Notes = observer(() => {
           ))
         }
       </Box>
+      <AddCategory />
       <Stack spacing={2} marginTop={4}>
         <Pagination sx={{ justifyContent: 'center', display: 'inline-flex' }} count={paginationCount} page={page} onChange={handleChange} variant="outlined" shape="rounded" color="secondary" />
       </Stack>
-      <AddCategory />
+
     </>
   )
 })

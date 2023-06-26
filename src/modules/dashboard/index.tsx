@@ -1,6 +1,9 @@
 import { Avatar, Box, Typography } from "@mui/material"
 import TodoStore from '../../store/todo'
 import { observer } from "mobx-react"
+import { profile } from "console"
+import { profileStore } from "../../store/profile"
+import { text } from "stream/consumers"
 
 
 const Dashboard = observer(() => {
@@ -34,10 +37,11 @@ const Dashboard = observer(() => {
             height: 56,
             mr: 2,
             color: 'background.default',
-            fontWeight: '600'
+            fontWeight: '600',
+            textTransform: 'uppercase'
           }}
         >
-          IR
+          {profileStore.avatar}
         </Avatar>
         <Typography
           variant={"h4"}
@@ -45,7 +49,7 @@ const Dashboard = observer(() => {
           fontWeight={'500'}
           color={'secondary.main'}
         >
-          Ilia Ryzhenkov
+          {profileStore.user}
         </Typography>
       </Box>
 
